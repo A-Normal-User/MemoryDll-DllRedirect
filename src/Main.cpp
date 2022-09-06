@@ -45,7 +45,7 @@ NTSTATUS __stdcall MyNtOpenFile(PHANDLE FileHandle,
 		OpenOptions);
 	//调用原函数
 	if (wcsstr(ObjectAttributes->ObjectName->Buffer, L"advapi32res.dll")) {
-		//如果是加载的sxs.dll
+		//如果是加载的advapi32res.dll
 		g_MyNtOpenFileHook.Stop();
 		//取消Hook
 		g_MyNtMapViewOfSectionHook.Start("ntdll.dll", "NtMapViewOfSection", (FARPROC)MyNtMapViewOfSection);
