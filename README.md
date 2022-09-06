@@ -16,7 +16,7 @@
 	  - Hook的回调函数大致如下：
 	  
 ```
-\#if _WIN64
+#if _WIN64
 NTSTATUS MyNtOpenFile(PHANDLE FileHandle,
 	ACCESS_MASK DesiredAccess,
 	POBJECT_ATTRIBUTES ObjectAttributes,
@@ -30,7 +30,7 @@ NTSTATUS __stdcall MyNtOpenFile(PHANDLE FileHandle,
 	PIO_STATUS_BLOCK IoStatusBlock,
 	ULONG ShareAccess,
 	ULONG OpenOptions)
-\#endif
+#endif
 {
 
 	g_MyNtOpenFileHook.Suspended();
@@ -55,7 +55,7 @@ NTSTATUS __stdcall MyNtOpenFile(PHANDLE FileHandle,
 	return result;
 }
 ```
-      - 可以看到，其实加载Dll时先调用NtOpenFile打开Dll文件（内部接着会调用NtCreateSection和NtMapViewOfSection对文件句柄进行映射）
+   - 可以看到，其实加载Dll时先调用NtOpenFile打开Dll文件（内部接着会调用NtCreateSection和NtMapViewOfSection对文件句柄进行映射）
 
 ## 实现结果：
    - x64测试：![](./png/x64.png)
