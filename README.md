@@ -23,7 +23,7 @@ NTSTATUS MyNtOpenFile(PHANDLE FileHandle,
 	PIO_STATUS_BLOCK IoStatusBlock,
 	ULONG ShareAccess,
 	ULONG OpenOptions) 
-\#elif _WIN32
+#elif _WIN32
 NTSTATUS __stdcall MyNtOpenFile(PHANDLE FileHandle,
 	ACCESS_MASK DesiredAccess,
 	POBJECT_ATTRIBUTES ObjectAttributes,
